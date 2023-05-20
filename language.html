@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Language</title>
+  <link rel="icon" href="robot.png" type="image/x-icon">
+  <link rel="stylesheet" href="language.css"> 
+   <style>
+        .robot {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            transition: transform 3s linear;
+            z-index: 9999;
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const robot = document.querySelector('.robot');
+            let isDragging = false;
+            let offsetX = 0;
+            let offsetY = 0;
+
+            robot.addEventListener('mousedown', (event) => {
+                isDragging = true;
+                offsetX = event.offsetX;
+                offsetY = event.offsetY;
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            document.addEventListener('mousemove', (event) => {
+                if (isDragging) {
+                    robot.style.left = `${event.pageX - offsetX}px`;
+                    robot.style.top = `${event.pageY - offsetY}px`;
+                }
+            });
+
+            setInterval(() => {
+                robot.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    robot.style.transform = 'translateX(-100%)';
+                }, 3000);
+            }, 6000);
+        });
+    </script>
+</head>
+<body>
+   	<div id="mySidenav" class="sidenav">
+	  <a href="index.html" id="about">Home</a>
+	  <a href="origin.html" id="blog">Origin</a>
+	  <a href="gallery.html" id="projects">Gallery</a>
+	</div>
+	
+  <div class="container">
+    <div class="text-container">
+      <br><br>
+      <h1>LANGUAGE</h1>
+      <p>If you think of a robot as a puppet, the lines of code are the strings that bring form and function to robots, whether they’re vacuuming floors or, more frequently, working on assembly lines. And like strings, some programming languages and the code they help humans write are stronger than others.</p>
+	  <p>C, C++ and Python are all popular programming languages used across the robotics industry, from the AI functionality behind a humanoid robot to the motor function of a robotic arm — the signature of industrial robots. These languages are often efficient and powerful, and frequently used across disciplines like computer science. Thanks to their widespread use, these programming languages have a strong network of users engineers can reach out to for help.</p>
+	   <br>
+    </div>
+
+    <div class="image-container">
+      <img src="isley.gif" alt="Image 1">
+    </div>
+  </div>
+   </div>
+    <img class="robot" src="robot.png" alt="Robot">
+</body>
+</html>

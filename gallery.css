@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-family: "Coolvetica", sans-serif, "Soka Ultrabold", sans-serif;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.text-container {
+  width: 50%;
+  color: gold;
+  margin-right: 50px;
+}
+
+.text-container h1 {
+  font-family: "Soka Ultrabold", sans-serif;
+  font-size: 75px;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.text-container p {
+  color: #62444c;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.slideshow-container {
+  width: 50%;
+}
+
+.mySlides {
+  display: none;
+  max-width: 100%;
+  height: auto;
+}
+
+.fade {
+  animation: fade 3s infinite;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#about {
+  top: 20px;
+  background-color: gold; /* Change background color to gold */
+}
+
+#blog {
+  top: 80px;
+  background-color: gold; /* Change background color to gold */
+}
+
+#projects {
+  top: 140px;
+  background-color: gold; /* Change background color to gold */
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 80%;
+}
+
+.text-container {
+  width: 50%;
+  color: gold;
+  margin-right: 50px;
+}
+
+.text-container h1 {
+  font-family: "Soka Ultrabold", sans-serif;
+  font-size: 75px;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.text-container p {
+  color: #62444c;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.image-container {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.slideshow-container {
+  display: none;
+}
+

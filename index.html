@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Robotum</title>
+    <link rel="icon" href="robot.png" type="image/x-icon">
+    <link rel="stylesheet" href="ARANASQ4CSPROJECT.css"> 
+    <style>
+        .robot {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            transition: transform 3s linear;
+            z-index: 9999;
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const robot = document.querySelector('.robot');
+            let isDragging = false;
+            let offsetX = 0;
+            let offsetY = 0;
+
+            robot.addEventListener('mousedown', (event) => {
+                isDragging = true;
+                offsetX = event.offsetX;
+                offsetY = event.offsetY;
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            document.addEventListener('mousemove', (event) => {
+                if (isDragging) {
+                    robot.style.left = `${event.pageX - offsetX}px`;
+                    robot.style.top = `${event.pageY - offsetY}px`;
+                }
+            });
+
+            setInterval(() => {
+                robot.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    robot.style.transform = 'translateX(-100%)';
+                }, 3000);
+            }, 6000);
+        });
+    </script>
+</head>
+<body>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h1 class="moving-text">ROBOTICS</h1>
+    <div class="topnav">
+        <a href="origin.html">Origins</a>
+        <a href="language.html">Language</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+    <img class="robot" src="robot.png" alt="Robot">
+</body>
+</html>

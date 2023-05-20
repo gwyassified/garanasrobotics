@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Gallery</title>
+  <link rel="icon" href="robot.png" type="image/x-icon">
+  <link rel="stylesheet" href="origin.css">
+ <style>
+        .robot {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            transition: transform 3s linear;
+            z-index: 9999;
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const robot = document.querySelector('.robot');
+            let isDragging = false;
+            let offsetX = 0;
+            let offsetY = 0;
+
+            robot.addEventListener('mousedown', (event) => {
+                isDragging = true;
+                offsetX = event.offsetX;
+                offsetY = event.offsetY;
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            document.addEventListener('mousemove', (event) => {
+                if (isDragging) {
+                    robot.style.left = `${event.pageX - offsetX}px`;
+                    robot.style.top = `${event.pageY - offsetY}px`;
+                }
+            });
+
+            setInterval(() => {
+                robot.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    robot.style.transform = 'translateX(-100%)';
+                }, 3000);
+            }, 6000);
+        });
+    </script>  
+</head>
+<body>
+  <div id="mySidenav" class="sidenav">
+    <a href="index.html" id="about">Home</a>
+    <a href="origin.html" id="blog">Origins</a>
+    <a href="language.html" id="projects">Language</a>
+  </div>
+
+  <div class="container">
+    <div class="text-container">
+      <br><br><br>
+      <h1>GALLERY</h1>
+    <p>Herbert Televox - In 1927, a guy named Roy Wensley built the “first” humanoid robot named Herbert Televox. Here is a picture of Roy and the robot. (Top Left Picture)</p>
+	<p>Sophia - I am Hanson Robotics’ latest human-like robot, created by combining our innovations in science, engineering and artistry. Think of me as a personification of our dreams for the future of AI, as well as a framework for advanced AI and robotics research, and an agent for exploring human-robot experience in service and entertainment applications. (Top Right Picture)</p>
+	<p>Topio - TOPIO, a humanoid robot, played ping pong at Tokyo International Robot Exhibition (IREX) 2009. (Picture below Herbert Televox)</p>
+	<p>The first Henn na Hotel opened March of 2015 in Nagasaki, Japan at the popular theme park, Huis Ten Bosch. As the Guinness World Record Holder for the first robot-staffed hotel, the Henn na Hotel brand is known for evolution in design and technology. (Picture Bottom Left)</p>
+	<p>Japan's Kyoto University robot creator Tomotaka Takahashi shows his latest humanoid robot FT, equipped with 23 actuators and two gyro sensors on the carbon fiber and plastic made svelte body. (Bottom Right Picture)</p>
+	<p>Robotics is a field that combines engineering, computer science, and artificial intelligence to design, build, and program robots that can perform various tasks autonomously or with human interaction.</p>
+	<p>Robotics plays a crucial role in industries such as manufacturing, healthcare, exploration, and automation, offering solutions to complex challenges, increasing efficiency, and enhancing human capabilities.</p>
+    </div>
+
+    <div class="image-container">
+      <img src="robotgallery.png" alt="Image 1">
+    </div>
+  </div>
+   </div>
+    <img class="robot" src="robot.png" alt="Robot">
+</body>
+</html>

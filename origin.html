@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Origins</title>
+  <link rel="icon" href="robot.png" type="image/x-icon">
+  <link rel="stylesheet" href="origin.css"> 
+   <style>
+        .robot {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            transition: transform 3s linear;
+            z-index: 9999;
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const robot = document.querySelector('.robot');
+            let isDragging = false;
+            let offsetX = 0;
+            let offsetY = 0;
+
+            robot.addEventListener('mousedown', (event) => {
+                isDragging = true;
+                offsetX = event.offsetX;
+                offsetY = event.offsetY;
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            document.addEventListener('mousemove', (event) => {
+                if (isDragging) {
+                    robot.style.left = `${event.pageX - offsetX}px`;
+                    robot.style.top = `${event.pageY - offsetY}px`;
+                }
+            });
+
+            setInterval(() => {
+                robot.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    robot.style.transform = 'translateX(-100%)';
+                }, 3000);
+            }, 6000);
+        });
+    </script>
+</head>
+<body>
+  <div id="mySidenav" class="sidenav">
+    <a href="index.html" id="about">Home</a>
+    <a href="language.html" id="blog">Language</a>
+    <a href="gallery.html" id="projects">Gallery</a>
+  </div>
+
+  <div class="container">
+    <div class="text-container">
+      <br><br><br>
+      <h1>ORIGIN</h1>
+      <p>The field of robotics has its origins in a combination of ancient myths, scientific advancements, and technological developments. The concept of artificial beings with human-like qualities can be traced back to ancient civilizations, where stories of mythical creatures like the golems, automata, and mechanical servants captivated the human imagination.</p>
+      <p>The modern era of robotics began in the mid-20th century with the advent of electronic computers and the field of cybernetics. Cybernetics, a multidisciplinary approach to understanding and controlling complex systems, provided a framework for studying feedback and control mechanisms in both biological and artificial systems. This laid the foundation for the development of robots as autonomous machines capable of sensing, processing information, and performing physical tasks.</p>
+      <p>In 1954, George Devol and Joseph Engelberger invented the first digitally operated and programmable robotic arm, called the Unimate, which was used for industrial automation. The Unimate revolutionized manufacturing processes by automating repetitive tasks previously performed by humans. This success led to the rapid development and deployment of robots in various industries, such as automotive manufacturing.</p>
+      <p>In the following decades, robotics research expanded to encompass different aspects of robot design, control, and perception. Researchers focused on areas such as kinematics, dynamics, sensor technologies, and artificial intelligence (AI) to enhance the capabilities of robots. The development of AI, particularly machine learning and computer vision, enabled robots to perceive and understand their environment, make decisions, and adapt to changing circumstances.</p>
+
+    </div>
+
+    <div class="image-container">
+      <img src="Ancient Roots.png" alt="Image 1">
+    </div>
+  </div>
+
+    <img class="robot" src="robot.png" alt="Robot">
+</body>
+</html>
